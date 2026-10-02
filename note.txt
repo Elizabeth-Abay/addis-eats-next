@@ -1,0 +1,3 @@
+To create a next js project 
+npx create-next-app@latest name
+ 
