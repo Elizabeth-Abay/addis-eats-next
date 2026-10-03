@@ -1,8 +1,9 @@
+"use client"
+import { useRouter } from "next/navigation";
 import useCartStore from "../../../../stores/CartStore";
-import { useNavigate } from "react-router-dom";
 
 export default function CheckoutButton() {
-  let navigate = useNavigate();
+  let router = useRouter();
 
   let price = useCartStore(state => state.total)
 
@@ -12,7 +13,7 @@ export default function CheckoutButton() {
 
   return (
     <button className="checkout-btn" onClick={
-        () =>navigate('/checkout-page')
+        () =>router.push('/checkout-page')
     } type="button">
       {/* Left section: Cloche Icon + Text */}
       <div className="checkout-btn-left">

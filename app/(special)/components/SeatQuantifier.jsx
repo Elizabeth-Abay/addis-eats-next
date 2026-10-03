@@ -3,7 +3,7 @@
 // i dont want the reserve button to be redrawn at all the things
 // so I gotta use useRef to store the amount in there to access that when i click the reserve button
 // but I want the number in the input , so when it gets changed it will update the value in the input
-
+"use client"
 import { useState } from "react";
 
 // input lay - + and - button will update the useRef value

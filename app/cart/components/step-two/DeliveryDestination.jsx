@@ -1,3 +1,4 @@
+"use client"
 import { SUB_CITIES } from '../../../../constants/variables';
 import { OrderContext } from '@/providers/OrderProvider';
 import useCartStore from '../../../../stores/CartStore';

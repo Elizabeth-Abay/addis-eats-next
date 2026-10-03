@@ -1,9 +1,9 @@
-import CategoryFilterContainer from '../components/CategoryFilterContainer';
-import MenuContainer from '../components/MenuContainer';
-import SearchBar from '../components/SearchBar';
-import SelectedItemsContainer from '../components/SelectedItemsContainer';
-import TraditionalGursha from '../components/TraditionalGurshaExperience';
-import '../style/style.css';
+import CategoryFilterContainer from './components/CategoryFilterContainer';
+import MenuContainer from './components/MenuContainer';
+import SearchBar from './components/SearchBar';
+import SelectedItemsContainer from './components/SelectedItemsContainer';
+import TraditionalGursha from './components/TraditionalGurshaExperience';
+import './style/style.css';
 
 export default function MenuPage(){
     return (

@@ -1,3 +1,4 @@
+"use client"
 import { OrderContext } from "@/providers/OrderProvider"; // Adjust import path if needed
 import useCartStore from "../../../stores/CartStore";
 import { useContext } from "react";

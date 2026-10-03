@@ -1,3 +1,4 @@
+"use client"
 import useCartStore from "../../../stores/CartStore";
 import { FaHandHoldingHeart } from "react-icons/fa6";
 import { HiOutlineHeart } from "react-icons/hi2";

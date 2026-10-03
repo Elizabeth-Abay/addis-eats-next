@@ -1,5 +1,6 @@
 // will consume the reservation context through handler functions from reserve handler
-import { ReservationContext } from "@/providers/ReservationProvider";
+"use client"
+import { ReservationContext } from "../../../providers/ReservationProvider";
 import { useContext } from "react";
 
 

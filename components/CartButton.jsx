@@ -1,6 +1,7 @@
+"use client"
+import { useRouter } from "next/navigation";
 import useCartStore from "../stores/CartStore";
 import { FaCartShopping } from "react-icons/fa6";
-import { useNavigate } from "react-router-dom";
 
 
 // the cart will have a count passed to it
@@ -8,12 +9,12 @@ export default function CartButton() {
     let cart = useCartStore(state => state.cart);
     let count = cart.length;
 
-    let navigate = useNavigate();
+    let router = useRouter();
     let onClick = () => {
-        navigate('/cart' )
+        router.push('/cart' )
     }
     return (
-        <button className="cart-button">
+        <button className="cart-button" onClick={onClick}>
         <FaCartShopping size={24} />
 
         {count > 0 && (

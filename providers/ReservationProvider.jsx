@@ -1,4 +1,5 @@
-import { RESERVER_FOR_COFFEE, RESERVE_FOR_FEAST } from "../../src-2/constants/variables";
+"use client"
+import { RESERVER_FOR_COFFEE, RESERVE_FOR_FEAST } from "../constants/variables";
 import { createContext, useState } from "react";
 
 export const ReservationContext = createContext('null');

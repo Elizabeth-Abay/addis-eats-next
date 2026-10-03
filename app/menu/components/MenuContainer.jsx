@@ -1,5 +1,6 @@
-import FullPageSpinner from "@/components/Spinner";
-import { MenuContext } from "@/providers/MenuProvider";
+"use client"
+import FullPageSpinner from "../../../components/Spinner";
+import { MenuContext } from "../../../providers/MenuProvider";
 import { useContext, useEffect, useState } from "react";
 import MenuBox from "./MenuBox";
 

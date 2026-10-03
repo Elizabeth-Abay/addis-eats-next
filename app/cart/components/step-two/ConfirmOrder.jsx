@@ -1,5 +1,6 @@
+"use client"
+import { useRouter } from "next/navigation";
 import useCartStore from "../../../../stores/CartStore";
-import { useNavigate } from "react-router-dom";
 
 export default function ConfirmOrderAndaPay(){
     let grandTotal = useCartStore(state => state.grandTotal);
@@ -8,7 +9,7 @@ export default function ConfirmOrderAndaPay(){
     let disabled = false;
     let isLoading = false;
 
-    let navigate = useNavigate()
+    let router = useRouter()
 
     let onClick = () => {
         // when this button is clicked
@@ -23,7 +24,7 @@ export default function ConfirmOrderAndaPay(){
 
         // //console.log('the state of the cart after confirm payment');
         // //console.log(state)
-        navigate('/thank-you' , { replace : true})
+        router.replace('/receipt')
         // returns from event handlers are ignored 
     }
     return (

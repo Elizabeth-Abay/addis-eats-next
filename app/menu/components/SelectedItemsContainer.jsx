@@ -1,11 +1,12 @@
+"use client"
+import { useRouter } from "next/navigation";
 import useCartStore from "../../../stores/CartStore";
-import { useNavigate } from "react-router-dom";
 
 export default function SelectedItemsContainer(){
     // we will need the total selected items and total price
     // and when the viewBasket gets clicked then go to cart
 
-    let navigate = useNavigate()
+    let router = useRouter()
     // we can have a total calculator and also have the number = cart.length
     // when the view basket gets clicked then u will go to the carts page
     // in the state there is cart property - and total too
@@ -37,7 +38,7 @@ export default function SelectedItemsContainer(){
 
             <button className="view-basket-btn" onClick={
                     () => {
-                        navigate('/cart'); 
+                        router.push('/cart'); 
                     }
                 }>
             <div className="btn-label">

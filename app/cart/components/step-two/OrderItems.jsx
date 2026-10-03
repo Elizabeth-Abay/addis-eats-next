@@ -1,3 +1,4 @@
+"use client"
 import useCartStore from "../../../../stores/CartStore";
 import OrderBox from "./OrderBox";
 

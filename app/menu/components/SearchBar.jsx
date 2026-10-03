@@ -1,4 +1,5 @@
-import { MenuContext } from "@/providers/MenuProvider";
+"use client"
+import { MenuContext } from "../../../providers/MenuProvider";
 import { useContext, useState } from "react";
 
 // search bar needs to have an access to the menu

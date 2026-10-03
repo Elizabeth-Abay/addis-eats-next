@@ -1,5 +1,5 @@
 // the provider will keep the state and give out the 
-
+"use client"
 import { createContext, useReducer } from "react";
 
 // item itself and things that can add it to the cart

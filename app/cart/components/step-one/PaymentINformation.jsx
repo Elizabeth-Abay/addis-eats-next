@@ -1,3 +1,4 @@
+"use client"
 import { PRICE_OF_INSULATED_CLAY_BOX, PROMO_CODE_ARRAY } from "../../../../constants/variables";
 import useCartStore from "../../../../stores/CartStore";
 import { useState } from "react";

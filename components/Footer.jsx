@@ -1,43 +1,51 @@
+"use client"
 import { HiOutlineFire, HiOutlineUser } from "react-icons/hi2";
 import { LuUtensilsCrossed } from "react-icons/lu";
-import { NavLink } from "react-router-dom";
 import CartButton from "./CartButton";
+import { usePathname, useRouter } from "next/navigation";
 
 export default function Footer() {
+  const router = useRouter()
+  const pathname = usePathname();
+
   return (
     <div className="footer-nav">
-      <NavLink 
-        to="/" 
-        className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
-        end
+      <button 
+        onClick={
+          () => router.replace('/')
+        }
+        className={`nav-link ${pathname === '/' ? 'active' : ''}`}
       >
         <HiOutlineFire className="nav-icon" />
         <span>Specials</span>
-      </NavLink>
+      </button>
 
-      <NavLink 
-        to="/menu" 
-        className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+      <button 
+        onClick={
+          () => router.replace('/menu')
+        }
+        className={`nav-link ${pathname === '/menu'  ? 'active' : ''}`}
       >
         <LuUtensilsCrossed className="nav-icon" />
         <span>Menu</span>
-      </NavLink>
+      </button>
 
-      <NavLink 
-        to="/cart" 
-        className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+      <div 
+        className={`nav-link ${pathname === '/cart' ? 'active' : ''}`}
       >
         <CartButton className="nav-icon" />
         <span>Cart</span>
-      </NavLink>
+      </div>
 
-      <NavLink 
-        to="/my-account" 
-        className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+      <button
+        onClick={
+          () => router.replace('/my-acc')
+        } 
+        className={`nav-link ${pathname === '/my-acc' ? 'active' : ''}`}
       >
         <HiOutlineUser className="nav-icon" />
         <span>Account</span>
-      </NavLink>
+      </button>
     </div>
   );
 }

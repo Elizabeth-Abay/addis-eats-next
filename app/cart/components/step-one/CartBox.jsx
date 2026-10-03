@@ -4,7 +4,7 @@
 // this will be sent from the cart container
 
 
-
+"use client"
 import useCartStore from "../../../../stores/CartStore";
 
 export default function CartBox({item}){

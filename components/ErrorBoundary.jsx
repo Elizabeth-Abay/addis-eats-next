@@ -1,9 +1,10 @@
-import { useNavigate } from "react-router-dom";
+"use client"
+import { useRouter } from "next/navigation";
 
 export default function MyErrorFallback({ error }) {
-    let navigate = useNavigate();
+    let router = useRouter();
     let  resetErrorBoundary = () => {
-        navigate('/')
+        router.replace('/')
     }
     return (
         <div role="alert" style={{ padding: "20px", color: "red" }}>

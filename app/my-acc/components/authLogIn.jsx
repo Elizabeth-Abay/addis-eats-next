@@ -1,3 +1,4 @@
+"use client"
 import { authSchema } from '../../../constants/schema';
 import userStore from '../../../stores/userStore';
 import { useState } from 'react';

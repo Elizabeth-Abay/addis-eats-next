@@ -1,3 +1,4 @@
+"use client"
 import { useRef } from "react";
 import { LuCoffee } from "react-icons/lu";
 import { RESERVER_FOR_COFFEE } from "../../../constants/variables";

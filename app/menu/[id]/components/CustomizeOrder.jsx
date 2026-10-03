@@ -1,6 +1,6 @@
 // make it stateful and also add the add to basket button here
 // props drilling is ok here
-
+"use client"
 import useCartStore from "../../../stores/CartStore";
 import { useState } from "react";
 import AddToCart from "./AddToCart";

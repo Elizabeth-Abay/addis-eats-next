@@ -1,7 +1,7 @@
-import CategoryResultContainer from "../components/CategoryResultContainer";
-import FeatureHead from "../components/FeatureHead";
-import ReserveTable from "../components/ReserveTable";
-import SpecialSelectionCard from "../components/SpecialSelectionCard";
+import CategoryResultContainer from "../(special)/components/CategoryResultContainer"
+import FeatureHead from "../(special)/components/FeatureHead";
+import ReserveTable from "../(special)/components/ReserveTable";
+import SpecialSelectionCard from "../(special)/components/SpecialSelectionCard";
 
 
 export default function SpecialPage(){

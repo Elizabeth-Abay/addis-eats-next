@@ -1,6 +1,7 @@
+"use client"
+import { useRouter } from "next/navigation";
 import useCartStore from "../../../stores/CartStore";
 import { FaPlus } from "react-icons/fa6";
-import { useNavigate } from "react-router-dom";
 
 export default function SpecialContainerBox({ container }) {
   const {
@@ -14,7 +15,7 @@ export default function SpecialContainerBox({ container }) {
     servings,
   } = container;
 
-  const navigate = useNavigate();
+  const router = useRouter()
   const addItem = useCartStore((state) => state.addItem);
 
   const handleQuickAdd = (e) => {
@@ -32,7 +33,7 @@ export default function SpecialContainerBox({ container }) {
   return (
     <div
       className="food-card"
-      onClick={() => navigate(`/item/${id}`)}
+      onClick={() => router.push(`/item/${id}`)}
       style={{
         display: "flex",
         flexDirection: "column",

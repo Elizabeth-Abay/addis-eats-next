@@ -1,3 +1,4 @@
+"use client"
 import { useRef } from "react";
 import { HiUserGroup } from "react-icons/hi2";
 import { RESERVE_FOR_FEAST } from "../../../constants/variables";

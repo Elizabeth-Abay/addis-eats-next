@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom";
+import { useRouter } from "next/navigation";
 
 export default function ItemNotFound() {
+    const router = useRouter()
     return (
         <div className="not-found-container">
         <div className="not-found-card">
@@ -32,7 +33,7 @@ export default function ItemNotFound() {
             </p>
 
             {/* Action Button */}
-            <Link to="/menu" className="back-menu-btn">
+            <button onClick={() => router.push("/menu")} className="back-menu-btn">
             <svg
                 width="18"
                 height="18"
@@ -47,7 +48,7 @@ export default function ItemNotFound() {
                 <polyline points="12 19 5 12 12 5" />
             </svg>
             <span>Return to Menu</span>
-            </Link>
+            </button>
         </div>
         </div>
     );

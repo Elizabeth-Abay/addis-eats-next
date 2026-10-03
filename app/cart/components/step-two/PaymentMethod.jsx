@@ -1,3 +1,4 @@
+"use client"
 import { OrderContext } from "@/providers/OrderProvider";
 import { useContext, useState } from "react";
 

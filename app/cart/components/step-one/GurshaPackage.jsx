@@ -1,6 +1,6 @@
 // it will need to see how many items are in there
 // it will need to use the context
-
+"use client"
 import useCartStore from "../../../../stores/CartStore"
 
 

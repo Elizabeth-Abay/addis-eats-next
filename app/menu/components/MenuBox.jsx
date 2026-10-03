@@ -1,8 +1,9 @@
+"use client"
+import { useRouter } from "next/navigation";
 import useCartStore from "../../../stores/CartStore";
 import { useState } from "react";
 import { FaFire, FaMinus, FaPlus } from "react-icons/fa6";
 import { HiOutlineShoppingCart } from "react-icons/hi2";
-import { useNavigate } from "react-router-dom";
 
 export default function MenuBox({ dish }) {
   const {
@@ -19,7 +20,7 @@ export default function MenuBox({ dish }) {
     image,
   } = dish;
 
-  const navigate = useNavigate();
+  const router = useRouter()
   const addItem = useCartStore((state) => state.addItem);
   const [count, setCount] = useState(1);
   const [added, setAdded] = useState(false);
@@ -38,7 +39,7 @@ export default function MenuBox({ dish }) {
 
   // Card click handler for details page
   const handleCardClick = () => {
-    navigate(`/item/${id}`);
+    router.push(`/menu/${id}`);
   };
 
   // Prevent navigation when adding to cart

@@ -1,4 +1,5 @@
-import FullPageSpinner from "@/components/Spinner";
+"use client"
+import FullPageSpinner from "../../../components/Spinner";
 import { useEffect, useReducer, useState } from "react";
 import { FaRegStar } from "react-icons/fa6";
 import CategoryFilter from "../../../components/CategoryFilter";
