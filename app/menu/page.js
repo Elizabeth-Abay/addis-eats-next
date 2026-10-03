@@ -1,3 +1,4 @@
+import MenuProvider from '../../providers/MenuProvider';
 import CategoryFilterContainer from './components/CategoryFilterContainer';
 import MenuContainer from './components/MenuContainer';
 import SearchBar from './components/SearchBar';
@@ -7,7 +8,8 @@ import './style/style.css';
 
 export default function MenuPage(){
     return (
-        <div>
+        <MenuProvider>
+            <div>
             <SearchBar></SearchBar>
             <TraditionalGursha></TraditionalGursha>
             <CategoryFilterContainer></CategoryFilterContainer>
@@ -15,6 +17,8 @@ export default function MenuPage(){
             {/* then we will need the view basket button */}
             <SelectedItemsContainer></SelectedItemsContainer>
         </div>
+        </MenuProvider>
+        
     )
 
 }

@@ -1,5 +1,5 @@
 "use client"
-import { OrderContext } from "@/providers/OrderProvider";
+import { OrderContext } from "../../../../providers/OrderProvider";
 import { useContext, useState } from "react";
 
 export default function PaymentMethodBox({ item, isSelected: externalIsSelected, onSelect: externalOnSelect }) {

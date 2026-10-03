@@ -2,6 +2,7 @@
 import { MenuContext } from "../../../providers/MenuProvider";
 import { useContext, useState } from "react";
 import CategoryFilter from "./CategoryFilter";
+// we may have to use a different thing for showing the context
 
 export default function CategoryFilterContainer(){
     let {  dispatch } = useContext(MenuContext);

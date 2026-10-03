@@ -1,7 +1,7 @@
 // make it stateful and also add the add to basket button here
 // props drilling is ok here
 "use client"
-import useCartStore from "../../../stores/CartStore";
+import useCartStore from "../../../../stores/CartStore";
 import { useState } from "react";
 import AddToCart from "./AddToCart";
 import AmountSetter from "./AmountSetter";
@@ -15,7 +15,9 @@ import SpiceLevelSelector from "./SpiceSelector";
 
 
 export default function CustomizeOrder({item }){
+    // console.log("price sent is here")
     let {id , name ,  price} = item;
+    // console.log(price)
     let addItem = useCartStore(state => state.addItem)
 
     // use addItem for saying add to cart and updating the cart items
@@ -30,7 +32,7 @@ export default function CustomizeOrder({item }){
         // when it gets clicked then it will add its price to the total
     });
 
-    let [ totalPrice , setTotalPrice ] = useState(price)
+    let [ totalPrice , setTotalPrice ] = useState(Number(price))
 
     let [ amount , setAmount ] = useState(1);
 

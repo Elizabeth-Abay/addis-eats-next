@@ -15,7 +15,7 @@ export default function MenuProvider({children}){
             case 'add-menu':
                 // //console.log('Rendered thigns');
                 //console.log(action.menu)
-                return {all : action.menu , rendered : action.menu}
+                return {all : action.menu , rendered : action.menu , isLoaded: true}
             case 'traditional stews & wat':
                 return { 
                     ...state , rendered : state.all.filter(
@@ -68,7 +68,8 @@ export default function MenuProvider({children}){
     // this will contain the useReducer
     let [ state , dispatch] = useReducer(menuReducer , {
         all : [],
-        rendered : []
+        rendered : [],
+        isLoaded: false
     });
 
 

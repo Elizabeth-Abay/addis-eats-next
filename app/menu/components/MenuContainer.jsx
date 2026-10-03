@@ -38,9 +38,10 @@ export default function MenuContainer(){
                     // when it first loads it will set the menu
                     let res = await result.json();
 
-                    //console.log('running get menu')
-                    //console.log('result is');
-                    //console.log(res.data);
+
+                    // console.log('running get menu')
+                    // console.log('result is');
+                    // console.log(res.data);
 
 
                     //console.log(typeof dispatch)

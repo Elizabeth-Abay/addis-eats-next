@@ -1,8 +1,8 @@
 "use client"
-import { OrderContext } from "@/providers/OrderProvider"; // Adjust import path if needed
-import useCartStore from "../../../stores/CartStore";
+import { OrderContext } from "../../providers/OrderProvider"; // Adjust import path if needed
+import useCartStore from "../../stores/CartStore";
 import { useContext } from "react";
-import "../styles/styles.css";
+import "../cart/styles/styles.css";
 
 export default function ThankYouPage() {
     let cart = useCartStore(state => state.cart);
