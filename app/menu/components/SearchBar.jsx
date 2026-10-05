@@ -7,6 +7,7 @@ import { usePathname , useRouter } from "next/navigation";
 export default function SearchBar(){
     let [ searchWord , setSearchWord ] = useState('')
     // let { state , dispatch } = useContext(MenuContext);
+    // this is a client component
     let router = useRouter()
     let pathname = usePathname() // to access the pathname
     // let searchParams = useSearchParams() // read the current url string

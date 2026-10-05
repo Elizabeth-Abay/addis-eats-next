@@ -24,6 +24,7 @@ export default function CategoryFilterContainer(){
 
     const handleCategoryClick = (categoryName, actionType) => {
         setActiveCategory(categoryName);
+        // this is the filter
 
         let setName = categories.find(item => item.name === categoryName)
         params.set('category' , setName.type);

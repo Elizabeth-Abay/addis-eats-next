@@ -8,8 +8,8 @@ import './style/style.css';
 
 export default async function MenuPage({searchParams}){
     let searchParameters = await searchParams
-    console.log("seaarch Params")
-    console.log(searchParams)
+    // console.log("seaarch Params")
+    // console.log(searchParams)
     return (
         <div>
             <SearchBar></SearchBar>

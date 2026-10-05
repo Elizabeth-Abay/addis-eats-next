@@ -7,18 +7,6 @@ import MenuBox from "./MenuBox";
 // what if i do like this - a contianer for the search bar and the filters to pass the props
 
 export default async function MenuContainer({ searchParams}){
-    // let { state , dispatch } = useMenu();
-
-    // { loading &&
-    //     <FullPageSpinner />
-    // }
-
-    // {
-    //     error != '' &&
-    //     <div className="error">
-    //         Error happened {error}
-    //     </div>
-    // }
 
     // run the menu loading only once when the container is rendered
 
