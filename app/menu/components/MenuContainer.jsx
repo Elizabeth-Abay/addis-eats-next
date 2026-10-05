@@ -30,7 +30,7 @@ export default async function MenuContainer({ searchParams}){
     
 
     try{    
-        let result = await fetch('https://addis-eats-backend.onrender.com/menu/');
+        let result = await fetch('https://addis-eats-backend.onrender.com/menu/' , { revalidate : 3600});
 
         if (!result || !result.ok) return alert('Problem fetching the menu');
 
