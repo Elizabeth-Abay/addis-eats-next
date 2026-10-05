@@ -6,18 +6,19 @@ import SelectedItemsContainer from './components/SelectedItemsContainer';
 import TraditionalGursha from './components/TraditionalGurshaExperience';
 import './style/style.css';
 
-export default function MenuPage(){
+export default async function MenuPage({searchParams}){
+    let searchParameters = await searchParams
+    console.log("seaarch Params")
+    console.log(searchParams)
     return (
-        <MenuProvider>
-            <div>
+        <div>
             <SearchBar></SearchBar>
             <TraditionalGursha></TraditionalGursha>
             <CategoryFilterContainer></CategoryFilterContainer>
-            <MenuContainer></MenuContainer>
+            <MenuContainer searchParams={searchParameters}></MenuContainer>
             {/* then we will need the view basket button */}
             <SelectedItemsContainer></SelectedItemsContainer>
         </div>
-        </MenuProvider>
         
     )
 

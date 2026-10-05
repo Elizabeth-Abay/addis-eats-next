@@ -1,15 +1,27 @@
 "use client"
 import { MenuContext } from "../../../providers/MenuProvider";
 import { useContext, useState } from "react";
+import { usePathname , useRouter } from "next/navigation";
 
 // search bar needs to have an access to the menu
 export default function SearchBar(){
     let [ searchWord , setSearchWord ] = useState('')
-    let { state , dispatch } = useContext(MenuContext);
+    // let { state , dispatch } = useContext(MenuContext);
+    let router = useRouter()
+    let pathname = usePathname() // to access the pathname
+    // let searchParams = useSearchParams() // read the current url string
 
     const handleChange = (e) =>{
-                setSearchWord(e.target.value)
-                dispatch({type : 'search_name' , input : searchWord})
+                setSearchWord(e.target.value);
+                // so move to there
+                // setting new URL search Params
+                let params = new URLSearchParams()
+
+                params.set("name" , e.target.value)
+
+                router.replace(`${pathname}?${params.toString()}`)
+
+                // dispatch({type : 'search_name' , input : searchWord})
             } 
     return (
         // we need a state that constantly filters the menu

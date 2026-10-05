@@ -28,7 +28,7 @@ export default function OrderPage(){
 
             let getMenu = async() => {
                 try{    
-                    let result = await fetch('https://addis-eats-backend.onrender.com/menu/');
+                    let result = await fetch('https://addis-eats-backend.onrender.com/menu/' , {revalidate : 3600});
 
                     if (!result || !result.ok) return alert('Problem fetching the menu');
 
@@ -51,8 +51,8 @@ export default function OrderPage(){
                     
 
                 }catch(err){
-                    //console.error("Error fetching menu:", err);
-                    setError(err.message)
+                    console.error("Error fetching menu:", err.message);
+                    // setError(err.message)
 
                 }
                 

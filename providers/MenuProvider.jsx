@@ -1,6 +1,6 @@
 // the provider will keep the state and give out the 
 "use client"
-import { createContext, useReducer } from "react";
+import { createContext, useReducer , useContext} from "react";
 
 // item itself and things that can add it to the cart
 export const MenuContext = createContext('null')
@@ -91,4 +91,13 @@ export default function MenuProvider({children}){
         </MenuContext.Provider>
     )
 
+}
+
+
+export function useMenu(){
+    let context = useContext(MenuContext);
+
+    if (!context) return (<>Error while use context</>)
+
+    return context
 }

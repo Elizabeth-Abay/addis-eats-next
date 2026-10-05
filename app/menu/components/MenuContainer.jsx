@@ -1,77 +1,136 @@
-"use client"
+// "use client"
 import FullPageSpinner from "../../../components/Spinner";
-import { MenuContext } from "../../../providers/MenuProvider";
-import { useContext, useEffect, useState } from "react";
+// import { useMenu } from "../../../providers/MenuProvider";
+// import { useEffect  } from "react";
 import MenuBox from "./MenuBox";
 
-export default function MenuContainer(){
-    let { state , dispatch } = useContext(MenuContext);
-    //console.log(useContext(MenuContext));
+// what if i do like this - a contianer for the search bar and the filters to pass the props
 
-    let [ loading , setLoading]   = useState(true);
-    let [error , setError ]  = useState('')
+export default async function MenuContainer({ searchParams}){
+    // let { state , dispatch } = useMenu();
 
+    // { loading &&
+    //     <FullPageSpinner />
+    // }
 
-    { loading &&
-        <FullPageSpinner />
-    }
-
-    {
-        error != '' &&
-        <div className="error">
-            Error happened {error}
-        </div>
-    }
+    // {
+    //     error != '' &&
+    //     <div className="error">
+    //         Error happened {error}
+    //     </div>
+    // }
 
     // run the menu loading only once when the container is rendered
-    useEffect(
-        () => {
-            //console.log('running the fetch')
 
-            let getMenu = async() => {
-                try{    
-                    let result = await fetch('https://addis-eats-backend.onrender.com/menu/');
-
-                    if (!result || !result.ok) return alert('Problem fetching the menu');
-
-                    // else then you can dispatch the event to create the menu list
-                    // when it first loads it will set the menu
-                    let res = await result.json();
+    let { name , category } = searchParams;
+    // if it is not there
 
 
-                    // console.log('running get menu')
-                    // console.log('result is');
-                    // console.log(res.data);
-
-
-                    //console.log(typeof dispatch)
-
-                    dispatch({type : 'add-menu' , menu : res.data })
-                    setLoading(false)
-
-                }catch(err){
-                    //console.error("Error fetching menu:", err);
-                    setError(err.message)
-
-                }
-                
-            }
-
-            getMenu()
-        } ,
-        []
-
+    let rendered;
     
-    )
+
+    try{    
+        let result = await fetch('https://addis-eats-backend.onrender.com/menu/');
+
+        if (!result || !result.ok) return alert('Problem fetching the menu');
+
+        // else then you can dispatch the event to create the menu list
+        // when it first loads it will set the menu
+        let res = await result.json();
+
+        // then check the way to filter the thing
+        // is it name or category
+        
+
+        let { data } = res;
+
+
+
+        if (name) {
+            const escapedInput = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            const searchRegex = new RegExp(escapedInput, 'i');
+            rendered = // Create a case-insensitive regex that matches anywhere in the string
+            data.map(
+                item => searchRegex.test(item.nameEn)
+            )
+        } else {
+            switch (category){
+                case 'wet':
+                        rendered = data.filter(
+                        (item) => item.category.toLowerCase().trim() === 'traditional stews & wat'
+                        )
+                        break
+                case 'tibs':
+                    rendered = data.filter(
+                        (item) => item.category.toLowerCase().trim() === 'tibs & grills'
+                        )
+                        break
+
+                case 'kitfo':
+                    rendered = data.filter(
+                        (item) => item.category.toLowerCase().trim() === 'raw & cured delicacies / kitfo'
+                        )
+                        break
+
+                
+    
+                case 'tsom':
+                    rendered = data.filter(
+                        (item) => item.category.toLowerCase().trim() === 'fasting & vegan / tsom'
+                        )
+                        break
+
+                    
+                case 'beverages':
+                    rendered = data.filter(
+                        (item) => item.category.toLowerCase().trim() === 'beverages & tej'
+                        )
+                        break
+
+                    
+                default:
+                    rendered = data
+            }
+        }
+        
+            
+            
+
+
+
+
+        // console.log('running get menu')
+        // console.log('result is');
+        // console.log(res.data);
+
+
+        //console.log(typeof dispatch)
+
+        // dispatch({type : 'add-menu' , menu : res.data })
+        // setLoading(false)
+        console.log("rendered")
+        console.log(rendered)
+
+    }catch(err){
+        //console.error("Error fetching menu:", err);
+        // setError(err.message)
+        console.log(`error during menu ${err.message}`)
+
+    }
 
     // then loop through the rendered items and then create the menuBox
     // //console.log('menu , sta')
-    // //console.log(state)
+    // //console.log(state)]\
+    let addingId = 1;
     return (
         <div className="menu-container">
             {
-                state?.rendered?.map(
-                    item => <MenuBox key={item.id} dish={item}></MenuBox>
+                // let idNew = `${item.id}${addin}`
+                rendered?.map(
+                    item => {
+                        let idNew = `${item.id}${addingId++}`
+                        return <MenuBox key={idNew} dish={item}></MenuBox>
+                    }
                 )
             }
         </div>
