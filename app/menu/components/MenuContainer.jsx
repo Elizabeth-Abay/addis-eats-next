@@ -49,10 +49,14 @@ export default async function MenuContainer({ searchParams}){
         if (name) {
             const escapedInput = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
             const searchRegex = new RegExp(escapedInput, 'i');
-            rendered = // Create a case-insensitive regex that matches anywhere in the string
-            data.map(
-                item => searchRegex.test(item.nameEn)
+            rendered = data.filter(
+                item => {
+                    if(searchRegex.test(item.nameEn)) {
+                        return item
+                }}
             )
+            console.log("Rendering items from name")
+            console.log(rendered)
         } else {
             switch (category){
                 case 'wet':
